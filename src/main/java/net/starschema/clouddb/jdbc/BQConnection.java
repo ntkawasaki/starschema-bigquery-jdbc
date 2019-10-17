@@ -220,7 +220,7 @@ public class BQConnection implements Connection {
                     userPath = userKey;
                     userKey = null;
                 }
-                this.bigquery = Oauth2Bigquery.authorizeviaservice(userId, userPath, userKey, userAgent, connectTimeout, readTimeout);
+                this.bigquery = Oauth2Bigquery.authorizeviaservice(userId, userPath, userKey, userAgent, connectTimeout, readTimeout, endpoint);
                 this.logger.info("Authorized with service account");
             } catch (GeneralSecurityException e) {
                 throw new BQSQLException(e);
