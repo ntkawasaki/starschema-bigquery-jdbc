@@ -82,7 +82,7 @@ public class BQConnection implements Connection {
     /** Boolean to determine whether or not to use legacy sql (default: true) **/
     private boolean useLegacySql = true;
 
-    /** String to override BigQuery API  whether or not to use legacy sql (default: true) **/
+    /** String to override BigQuery API endpoint (default: null) **/
     private String endpoint = null;
 
     /** getter for useLegacySql */
