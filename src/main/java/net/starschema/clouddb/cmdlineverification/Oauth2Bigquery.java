@@ -266,7 +266,8 @@ public class Oauth2Bigquery {
                                                String password,
                                                String userAgent,
                                                Integer connectTimeout,
-                                               Integer readTimeout) throws GeneralSecurityException, IOException {
+                                               Integer readTimeout,
+                                               String endpoint) throws GeneralSecurityException, IOException {
         GoogleCredential credential;
         // Determine which keyfile we are trying to authenticate with.
         if (Pattern.matches(".*\\.json$", keypath)) {
@@ -296,6 +297,10 @@ public class Oauth2Bigquery {
             requestInitializer.setUserAgent(userAgent);
 
             bqBuilder.setBigqueryRequestInitializer(requestInitializer);
+        }
+
+        if (endpoint != null) {
+            bqBuilder.setRootUrl(endpoint);
         }
 
         Bigquery bigquery = bqBuilder.build();

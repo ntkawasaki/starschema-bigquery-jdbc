@@ -82,6 +82,9 @@ public class BQConnection implements Connection {
     /** Boolean to determine whether or not to use legacy sql (default: true) **/
     private boolean useLegacySql = true;
 
+    /** String to override BigQuery API  whether or not to use legacy sql (default: true) **/
+    private String endpoint = null;
+
     /** getter for useLegacySql */
     public boolean getUseLegacySql() {
         return useLegacySql;
@@ -157,6 +160,7 @@ public class BQConnection implements Connection {
         String userId = caseInsensitiveProps.getProperty("user");
         String userKey = caseInsensitiveProps.getProperty("password");
         String userPath = caseInsensitiveProps.getProperty("path");
+        String endpoint = caseInsensitiveProps.getProperty("endpoint");
 
         // extract withServiceAccount property
         String withServiceAccountParam = caseInsensitiveProps.getProperty("withserviceaccount");
